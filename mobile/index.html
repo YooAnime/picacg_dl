@@ -114,14 +114,16 @@
     <button id="allowButton">好啦！</button>
   </div>
 </div>
-    <script>
+<script>
  const dialogOverlay = document.getElementById('dialogOverlay');
- const closeButton = document.getElementById('closeButton');
+const closeButton = document.getElementById('closeButton');
+const allowButton = document.getElementById('allowButton');
+const adbDetector = new AdblockDetector();
+const userHasAdblock = adbDetector.detect();
 
- openButton.addEventListener('click', function() {
-   dialogOverlay.style.display = 'block';
- });
-
+if (userHasAdblock) {
+  dialogOverlay.style.display = 'block';
+}
  closeButton.addEventListener('click', function() {
    dialogOverlay.style.display = 'none';
  });
