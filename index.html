@@ -205,13 +205,67 @@ function browserRedirect() {
 }
 browserRedirect();
 </script>
+<style>
+ #dialogOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+#dialogBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#allowButton {
+  margin-top: 10px;
+}
+</style>
  </head>
 <body onload=clear()>
+ <div id="dialogOverlay">
+  <div id="dialogBox">
+    <h2>呜……是广告屏蔽器</h2>
+    <p>我们需要你的支持，请将我们加入白名单，求你啦~</p>
+    <span id="closeButton">&#10006;</span>
+    <button id="allowButton">好啦！</button>
+  </div>
+</div>
+</div>
  <script>
-        const adbDetector = new AdblockDetector();
-        const userHasAdblock = adbDetector.detect();
-        console.log(userHasAdblock); // 输出用户是否启用了广告屏蔽程序
-  </script>
+ const dialogOverlay = document.getElementById('dialogOverlay');
+ const closeButton = document.getElementById('closeButton');
+
+ openButton.addEventListener('click', function() {
+   dialogOverlay.style.display = 'block';
+ });
+
+ closeButton.addEventListener('click', function() {
+   dialogOverlay.style.display = 'none';
+ });
+
+ allowButton.addEventListener('click', function() {
+   location.reload();
+ });
+ </script>
 <div class="mdui-container">
  <script type="text/javascript">
   var weChatWait=2;
