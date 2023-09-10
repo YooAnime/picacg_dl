@@ -234,11 +234,9 @@ browserRedirect();
   right: 10px;
   cursor: pointer;
 }
-/*
 #allowButton {
   margin-top: 10px;
 }
- */
 </style>
  </head>
 <body onload=clear()>
@@ -247,13 +245,13 @@ browserRedirect();
     <h2>呜……是广告屏蔽器</h2>
     <p>我们需要你的支持，请将我们加入白名单，求你啦~</p>
     <span id="closeButton">&#10006;</span>
-    <!--<button id="allowButton">好啦！</button>-->
+    <button id="allowButton">好啦（刷新页面）</button>
   </div>
 </div>
  <script>
  const dialogOverlay = document.getElementById('dialogOverlay');
 const closeButton = document.getElementById('closeButton');
-//const allowButton = document.getElementById('allowButton');
+const allowButton = document.getElementById('allowButton');
 const adbDetector = new AdblockDetector();
 const userHasAdblock = adbDetector.detect();
 
@@ -264,9 +262,9 @@ if (userHasAdblock) {
    dialogOverlay.style.display = 'none';
  });
 
- /*allowButton.addEventListener('click', function() {
+ allowButton.addEventListener('click', function() {
    location.reload();
- });*/
+ });
  </script>
 <div class="mdui-container">
  <script type="text/javascript">
